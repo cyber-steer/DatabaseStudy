@@ -11,6 +11,7 @@ drop table station;
 drop table base;
 drop table enterprise;
 
+
 create table enterprise(
     eno number(2) constraint enterprise_eno_pk primary key,
     ename varchar2(60) constraint enterprise_ename_nn not null,
@@ -208,85 +209,117 @@ insert into customer values(seq_customer.nextval, '협신산업가스', '051-327-2261'
 insert into customer values(seq_customer.nextval, '크리오스', '051-831-1190');
 
 insert into employee values
-(seq_employee.nextval, '고은옥','사원','2013-05-02','010-9715-3669',5000000,1);
+(seq_employee.nextval, '고은옥','사장','2013-05-02','010-9715-3669',5000000,1);
 insert into employee values
-(seq_employee.nextval, '류예진','사원','2013-05-02','010-1044-7758',3000000,1);
+(seq_employee.nextval, '류예진','팀장','2013-05-02','010-1044-7758',3000000,1);
 insert into employee values
 (seq_employee.nextval, '황성철','사원','2012-04-02','010-1990-2215',2500000,1);
 insert into employee values
 (seq_employee.nextval, '임준태','사원','2017-05-31','010-1393-1794',2000000,1);
 insert into employee values
-(seq_employee.nextval, '황보승연','사원','2014-06-08','010-1682-6467',5000000,2);
+(seq_employee.nextval, '황보승연','사장','2014-06-08','010-1682-6467',5000000,2);
 insert into employee values
-(seq_employee.nextval, '배세진','사원','2014-03-16','010-6852-8199',3000000,2);
+(seq_employee.nextval, '배세진','팀장','2014-03-16','010-6852-8199',3000000,2);
 insert into employee values
 (seq_employee.nextval, '임형태','사원','2009-07-27','010-9559-1594',2500000,2);
 insert into employee values
 (seq_employee.nextval, '윤범수','사원','2012-10-17','010-5767-8847',2000000,2);
 insert into employee values
-(seq_employee.nextval, '예시혁','사원','2017-03-17','010-7746-7252',5000000,3);
+(seq_employee.nextval, '예시혁','사장','2017-03-17','010-7746-7252',5000000,3);
 insert into employee values
-(seq_employee.nextval, '이원미','사원','2014-10-05','010-1187-8120',3000000,3);
+(seq_employee.nextval, '이원미','팀장','2014-10-05','010-1187-8120',3000000,3);
 insert into employee values
 (seq_employee.nextval, '고현태','사원','2014-08-06','010-2902-9937',2500000,3);
 insert into employee values
 (seq_employee.nextval, '남궁호석','사원','2015-11-27','010-7698-9665',2000000,3);
 insert into employee values
-(seq_employee.nextval, '전성혁','사원','2009-11-16','010-1237-3248',5000000,4);
+(seq_employee.nextval, '전성혁','사장','2009-11-16','010-1237-3248',5000000,4);
 insert into employee values
-(seq_employee.nextval, '조혜수','사원','2013-08-08','010-3803-4062',3000000,4);
+(seq_employee.nextval, '조혜수','팀장','2013-08-08','010-3803-4062',3000000,4);
 insert into employee values
 (seq_employee.nextval, '표다은','사원','2011-01-13','010-8905-4846',2500000,4);
 insert into employee values
 (seq_employee.nextval, '추소희','사원','2010-04-25','010-6185-8736',2000000,4);
 insert into employee values
-(seq_employee.nextval, '신영혜','사원','2010-10-20','010-1637-5177',5000000,5);
+(seq_employee.nextval, '신영혜','사장','2010-10-20','010-1637-5177',5000000,5);
 insert into employee values
-(seq_employee.nextval, '심기용','사원','2018-04-13','010-1360-6382',3000000,5);
+(seq_employee.nextval, '심기용','팀장','2018-04-13','010-1360-6382',3000000,5);
 insert into employee values
 (seq_employee.nextval, '황기훈','사원','2010-06-01','010-2231-4598',2500000,5);
 insert into employee values
 (seq_employee.nextval, '설동수','사원','2014-08-16','010-2569-7794',2000000,5);
 insert into employee values
-(seq_employee.nextval, '하우준','사원','2013-05-14','010-8175-8316',5000000,6);
+(seq_employee.nextval, '하우준','사장','2013-05-14','010-8175-8316',5000000,6);
 insert into employee values
-(seq_employee.nextval, '권승식','사원','2016-05-16','010-4682-7440',3000000,6);
+(seq_employee.nextval, '권승식','팀장','2016-05-16','010-4682-7440',3000000,6);
 insert into employee values
 (seq_employee.nextval, '남궁세정','사원','2015-04-03','010-1270-7881',2500000,6);
 insert into employee values
 (seq_employee.nextval, '정영태','사원','2011-12-20','010-8289-4218',2000000,6);
 insert into employee values
-(seq_employee.nextval, '성영진','사원','2012-12-03','010-2820-9209',5000000,7);
+(seq_employee.nextval, '성영진','사장','2012-12-03','010-2820-9209',5000000,7);
 insert into employee values
-(seq_employee.nextval, '윤준현','사원','2015-10-31','010-4091-1362',3000000,7);
+(seq_employee.nextval, '윤준현','팀장','2015-10-31','010-4091-1362',3000000,7);
 insert into employee values
 (seq_employee.nextval, '고선영','사원','2013-05-16','010-1603-4623',2500000,7);
 insert into employee values
 (seq_employee.nextval, '한태호','사원','2009-02-06','010-6547-2645',2000000,7);
 insert into employee values
-(seq_employee.nextval, '안현정','사원','2012-04-29','010-6315-1146',5000000,8);
+(seq_employee.nextval, '안현정','사장','2012-04-29','010-6315-1146',5000000,8);
 insert into employee values
-(seq_employee.nextval, '사공범우','사원','2009-09-11','010-9179-2330',3000000,8);
+(seq_employee.nextval, '사공범우','팀장','2009-09-11','010-9179-2330',3000000,8);
 insert into employee values
 (seq_employee.nextval, '설윤호','사원','2013-10-17','010-7293-3592',2500000,8);
 insert into employee values
 (seq_employee.nextval, '탁민철','사원','2009-02-13','010-7646-2340',2000000,8);
 insert into employee values
-(seq_employee.nextval, '이기철','사원','2010-09-20','010-1461-7391',5000000,9);
+(seq_employee.nextval, '이기철','사장','2010-09-20','010-1461-7391',5000000,9);
 insert into employee values
-(seq_employee.nextval, '강진하','사원','2010-09-01','010-5264-8046',3000000,9);
+(seq_employee.nextval, '강진하','팀장','2010-09-01','010-5264-8046',3000000,9);
 insert into employee values
 (seq_employee.nextval, '허주환','사원','2011-11-16','010-3483-8935',2500000,9);
 insert into employee values
 (seq_employee.nextval, '남궁선아','사원','2012-02-27','010-2881-4744',2000000,9);
 insert into employee values
-(seq_employee.nextval, '서태준','사원','2015-04-09','010-9954-6542',5000000,10);
+(seq_employee.nextval, '서태준','사장','2015-04-09','010-9954-6542',5000000,10);
 insert into employee values
-(seq_employee.nextval, '최기정','사원','2012-09-22','010-2333-3437',3000000,10);
+(seq_employee.nextval, '최기정','팀장','2012-09-22','010-2333-3437',3000000,10);
 insert into employee values
 (seq_employee.nextval, '하다은','사원','2018-02-10','010-6040-6378',2500000,10);
 insert into employee values
-(seq_employee.nextval, '문광현','사원','2012-01-18','010-7232-5864',2000000,10);
+(seq_employee.nextval, '봉현기','사원','2012-01-18','010-1141-5481',2000000,10);
+insert into employee values
+(seq_employee.nextval, '고희영','사장','2012-01-18','010-6811-6491',5000000,11);
+insert into employee values
+(seq_employee.nextval, '서우원','팀장','2012-01-18','010-2475-5676',3000000,11);
+insert into employee values
+(seq_employee.nextval, '안태희','사원','2012-01-18','010-5612-7027',2500000,11);
+insert into employee values
+(seq_employee.nextval, '홍용하','사원','2012-01-18','010-2700-6368',2000000,11);
+insert into employee values
+(seq_employee.nextval, '강효준','사장','2012-01-18','010-7192-6242',5000000,12);
+insert into employee values
+(seq_employee.nextval, '표영철','팀장','2012-01-18','010-3126-5577',3000000,12);
+insert into employee values
+(seq_employee.nextval, '문윤혁','사원','2012-01-18','010-6407-1564',2500000,12);
+insert into employee values
+(seq_employee.nextval, '안원석','사원','2012-01-18','010-9417-9310',2000000,12);
+insert into employee values
+(seq_employee.nextval, '노은선','사장','2012-01-18','010-9906-9136',5000000,13);
+insert into employee values
+(seq_employee.nextval, '권광석','팀장','2012-01-18','010-4570-6135',3000000,13);
+insert into employee values
+(seq_employee.nextval, '봉서은','사원','2012-01-18','010-5032-9828',2500000,13);
+insert into employee values
+(seq_employee.nextval, '설병하','사원','2012-01-18','010-8771-7415',2000000,13);
+insert into employee values
+(seq_employee.nextval, '제갈수진','사장','2012-01-18','010-6855-7402',5000000,14);
+insert into employee values
+(seq_employee.nextval, '이경은','팀장','2012-01-18','010-6317-1323',3000000,14);
+insert into employee values
+(seq_employee.nextval, '전남기','사원','2012-01-18','010-1525-8053',2500000,14);
+insert into employee values
+(seq_employee.nextval, '풍수혁','사원','2012-01-18','010-4746-2758',2000000,14);
 
 insert into cylinder values(seq_cylinder.nextval, 3, 16200, 0, 1);
 insert into cylinder values(seq_cylinder.nextval, 5, 23700, 2, 1);
@@ -721,17 +754,28 @@ update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join
 update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=13) where pno =13;
 update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=14) where pno =14;
 
-select squantity
-from sale
-where pno = 1;
+select *
+from employee
+where sno = 2;
 
-select sum(c.cprice * s.squantity)
+select ename, hiredate, job ,salary
+from employee
+where job = '사장';
+
+select count(ename)
+from employee
+where sno = 10;
+
+select eno, sum(osum)
+from cylinder_order
+group by eno;
+
+select cusno, sum(csum)
+from charge
+group by cusno
+order by cusno;
+
+select c.cvoluem as 용량, s.squantity as 수량, c.cprice* s.squantity as 가격 
 from cylinder c join sale s
 on c.cno = s.cno
-where pno=1;
-
---join ~ on (성능으로는 제일 빠름) 검색후 조인
-select e.eno, e.ename, d.dname, d.dno
-from employee e join department d
-on e.dno = d.dno -- 조인조건
-where e.eno = 7788; -- 검색조건
+where pno = 10;
