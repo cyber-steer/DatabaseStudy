@@ -705,3 +705,33 @@ insert into sale values(seq_sale.nextval, 2, 1, 14, 20);
 insert into sale values(seq_sale.nextval, 17, 5, 14, 17);
 insert into sale values(seq_sale.nextval, 1, 6, 14, 8);
 insert into sale values(seq_sale.nextval, 2, 8, 14, 1);
+
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=1) where pno =1;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=2) where pno =2;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=3) where pno =3;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=4) where pno =4;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=5) where pno =5;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=6) where pno =6;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=7) where pno =7;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=8) where pno =8;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=9) where pno =9;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=10) where pno =10;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=11) where pno =11;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=12) where pno =12;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=13) where pno =13;
+update payment set psum =(select sum(c.cprice * s.squantity)from cylinder c join sale s on c.cno = s.cno where pno=14) where pno =14;
+
+select squantity
+from sale
+where pno = 1;
+
+select sum(c.cprice * s.squantity)
+from cylinder c join sale s
+on c.cno = s.cno
+where pno=1;
+
+--join ~ on (성능으로는 제일 빠름) 검색후 조인
+select e.eno, e.ename, d.dname, d.dno
+from employee e join department d
+on e.dno = d.dno -- 조인조건
+where e.eno = 7788; -- 검색조건
