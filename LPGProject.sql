@@ -36,7 +36,7 @@ create table customer(
 create table payment(
     pno number(2) constraint payment_pno_pk primary key,
     pday date constraint payment_pday_nn not null,
-    psum number(7) constraint payment_psum_ not null
+    psum number(7)
 );
 create table employee(
     eno number(2) constraint employee_eno_pk primary key,
@@ -82,13 +82,13 @@ create table gas_order(
 create table charge(
     ccode number(2) constraint charge_ccode_pk primary key,
     cday date constraint charge_cday_nn not null,
-    cvoluem number(3) constraint charge_cvoluem_nn not null,
+    cvoluem number(4) constraint charge_cvoluem_nn not null,
     csum number(6) constraint charge_csum_nn not null,
     gno number(2) constraint charge_gno_fk references gas,
     cusno number(2) constraint charge_cusno_fk references customer
 );
 create table sale(
-    scode number(2) constraint sale_scode_pk primary key,
+    scode number(3) constraint sale_scode_pk primary key,
     squantity number(3) constraint sale_squantity_nn not null,
     cno number(2) constraint sale_cno_fk references cylinder,
     pno number(2) constraint sale_pno_fk references payment,
@@ -206,37 +206,6 @@ insert into customer values(seq_customer.nextval, '영진종합가스', '051-412-3104'
 insert into customer values(seq_customer.nextval, '대천가스', '051-621-3036');
 insert into customer values(seq_customer.nextval, '협신산업가스', '051-327-2261');
 insert into customer values(seq_customer.nextval, '크리오스', '051-831-1190');
-
-insert into payment values(seq_payment.nextval, '2010-10-08', 836000);
-insert into payment values(seq_payment.nextval, '2017-10-25', 572000);
-insert into payment values(seq_payment.nextval, '2016-06-23', 508000);
-insert into payment values(seq_payment.nextval, '2011-04-02', 684000);
-insert into payment values(seq_payment.nextval, '2014-10-25', 760000);
-insert into payment values(seq_payment.nextval, '2012-03-10', 596000);
-insert into payment values(seq_payment.nextval, '2009-11-21', 864000);
-insert into payment values(seq_payment.nextval, '2011-01-24', 676000);
-insert into payment values(seq_payment.nextval, '2013-10-18', 247000);
-insert into payment values(seq_payment.nextval, '2016-12-30', 178000);
-insert into payment values(seq_payment.nextval, '2009-12-07', 425000);
-insert into payment values(seq_payment.nextval, '2010-08-10', 944000);
-insert into payment values(seq_payment.nextval, '2015-08-10', 851000);
-insert into payment values(seq_payment.nextval, '2009-12-03', 918000);
-insert into payment values(seq_payment.nextval, '2012-07-06', 790000);
-insert into payment values(seq_payment.nextval, '2013-03-10', 449000);
-insert into payment values(seq_payment.nextval, '2011-04-12', 594000);
-insert into payment values(seq_payment.nextval, '2009-07-20', 390000);
-insert into payment values(seq_payment.nextval, '2018-03-20', 813000);
-insert into payment values(seq_payment.nextval, '2012-02-21', 770000);
-insert into payment values(seq_payment.nextval, '2010-04-14', 507000);
-insert into payment values(seq_payment.nextval, '2013-08-13', 593000);
-insert into payment values(seq_payment.nextval, '2009-05-31', 693000);
-insert into payment values(seq_payment.nextval, '2014-03-08', 367000);
-insert into payment values(seq_payment.nextval, '2015-06-11', 713000);
-insert into payment values(seq_payment.nextval, '2009-07-31', 837000);
-insert into payment values(seq_payment.nextval, '2017-09-17', 785000);
-insert into payment values(seq_payment.nextval, '2011-07-08', 529000);
-insert into payment values(seq_payment.nextval, '2015-08-10', 755000);
-insert into payment values(seq_payment.nextval, '2011-03-11', 631000);
 
 insert into employee values
 (seq_employee.nextval, '고은옥','사원','2013-05-02','010-9715-3669',5000000,1);
@@ -560,3 +529,179 @@ insert into gas_order values(seq_gas_order.nextval, '2003-3-21', '프로판', 1400,
 insert into gas_order values(seq_gas_order.nextval, '2015-9-10', '부탄', 1600, 1984000, 12, 13);
 insert into gas_order values(seq_gas_order.nextval, '2004-1-8', '프로판', 1100, 1210000, 12, 14);
 insert into gas_order values(seq_gas_order.nextval, '2016-6-13', '부탄', 2500, 3225000, 10, 14);
+
+insert into charge values
+(seq_charge.nextval, '2001-5-3', 4,  4*(select gprice from gas where gno = 1), 1,3);
+insert into charge values
+(seq_charge.nextval, '2011-8-26', 26,  26*(select gprice from gas where gno = 2), 2,13);
+insert into charge values
+(seq_charge.nextval, '2007-12-22', 12,  12*(select gprice from gas where gno = 3), 3,24);
+insert into charge values
+(seq_charge.nextval, '2018-1-27', 35,  35*(select gprice from gas where gno = 4), 4,4);
+insert into charge values
+(seq_charge.nextval, '2003-6-5', 39,  39*(select gprice from gas where gno = 5), 5,24);
+insert into charge values
+(seq_charge.nextval, '2011-1-31', 27,  27*(select gprice from gas where gno = 6), 6,21);
+insert into charge values
+(seq_charge.nextval, '2002-10-15', 1,  1*(select gprice from gas where gno = 7), 7,10);
+insert into charge values
+(seq_charge.nextval, '2018-10-14', 3,  3*(select gprice from gas where gno = 8), 8,13);
+insert into charge values
+(seq_charge.nextval, '2002-2-30', 17,  17*(select gprice from gas where gno = 9), 9,23);
+insert into charge values
+(seq_charge.nextval, '2016-9-16', 24,  24*(select gprice from gas where gno = 10), 10,25);
+insert into charge values
+(seq_charge.nextval, '2005-4-18', 42,  42*(select gprice from gas where gno = 11), 11,18);
+insert into charge values
+(seq_charge.nextval, '2014-6-17', 40,  40*(select gprice from gas where gno = 12), 12,13);
+insert into charge values
+(seq_charge.nextval, '2000-4-7', 44,  44*(select gprice from gas where gno = 13), 13,5);
+insert into charge values
+(seq_charge.nextval, '2014-8-24', 49,  49*(select gprice from gas where gno = 14), 14,1);
+insert into charge values
+(seq_charge.nextval, '2001-8-6', 18,  18*(select gprice from gas where gno = 15), 15,17);
+insert into charge values
+(seq_charge.nextval, '2011-7-23', 1,  1*(select gprice from gas where gno = 16), 16,5);
+insert into charge values
+(seq_charge.nextval, '2008-5-18', 21,  21*(select gprice from gas where gno = 17), 17,2);
+insert into charge values
+(seq_charge.nextval, '2015-6-25', 32,  32*(select gprice from gas where gno = 18), 18,4);
+insert into charge values
+(seq_charge.nextval, '2000-3-16', 26,  26*(select gprice from gas where gno = 19), 19,4);
+insert into charge values
+(seq_charge.nextval, '2019-9-9', 21,  21*(select gprice from gas where gno = 20), 20,2);
+insert into charge values
+(seq_charge.nextval, '2000-9-18', 20,  20*(select gprice from gas where gno = 21), 21,4);
+insert into charge values
+(seq_charge.nextval, '2018-7-11', 24,  24*(select gprice from gas where gno = 22), 22,22);
+insert into charge values
+(seq_charge.nextval, '2004-4-2', 3,  3*(select gprice from gas where gno = 23), 23,14);
+insert into charge values
+(seq_charge.nextval, '2010-9-4', 1,  1*(select gprice from gas where gno = 24), 24,15);
+insert into charge values
+(seq_charge.nextval, '2001-9-3', 8,  8*(select gprice from gas where gno = 25), 25,2);
+insert into charge values
+(seq_charge.nextval, '2019-3-3', 44,  44*(select gprice from gas where gno = 26), 26,24);
+insert into charge values
+(seq_charge.nextval, '2002-8-2', 24,  24*(select gprice from gas where gno = 27), 27,4);
+insert into charge values
+(seq_charge.nextval, '2018-11-15', 31,  31*(select gprice from gas where gno = 28), 28,5);
+
+insert into payment values(seq_payment.nextval, '2000-4-23', null);
+insert into payment values(seq_payment.nextval, '2001-2-5', null);
+insert into payment values(seq_payment.nextval, '2002-9-15', null);
+insert into payment values(seq_payment.nextval, '2003-2-24', null);
+insert into payment values(seq_payment.nextval, '2004-8-13', null);
+insert into payment values(seq_payment.nextval, '2005-5-27', null);
+insert into payment values(seq_payment.nextval, '2006-9-26', null);
+insert into payment values(seq_payment.nextval, '2007-10-26', null);
+insert into payment values(seq_payment.nextval, '2008-2-24', null);
+insert into payment values(seq_payment.nextval, '2009-7-19', null);
+insert into payment values(seq_payment.nextval, '2010-4-2', null);
+insert into payment values(seq_payment.nextval, '2011-1-30', null);
+insert into payment values(seq_payment.nextval, '2012-5-19', null);
+insert into payment values(seq_payment.nextval, '2013-8-18', null);
+
+insert into sale values(seq_sale.nextval, 1, 2, 1, 19);
+insert into sale values(seq_sale.nextval, 1, 3, 1, 25);
+insert into sale values(seq_sale.nextval, 17, 4, 1, 19);
+insert into sale values(seq_sale.nextval, 49, 5, 1, 7);
+insert into sale values(seq_sale.nextval, 5, 6, 1, 18);
+insert into sale values(seq_sale.nextval, 1, 7, 1, 17);
+insert into sale values(seq_sale.nextval, 1, 8, 1, 10);
+insert into sale values(seq_sale.nextval, 1, 9, 1, 25);
+insert into sale values(seq_sale.nextval, 1, 2, 2, 24);
+insert into sale values(seq_sale.nextval, 2, 3, 2, 23);
+insert into sale values(seq_sale.nextval, 2, 4, 2, 10);
+insert into sale values(seq_sale.nextval, 20, 5, 2, 5);
+insert into sale values(seq_sale.nextval, 1, 7, 2, 19);
+insert into sale values(seq_sale.nextval, 2, 8, 2, 14);
+insert into sale values(seq_sale.nextval, 2, 9, 2, 21);
+insert into sale values(seq_sale.nextval, 2, 1, 3, 25);
+insert into sale values(seq_sale.nextval, 2, 2, 3, 2);
+insert into sale values(seq_sale.nextval, 12, 4, 3, 2);
+insert into sale values(seq_sale.nextval, 26, 5, 3, 9);
+insert into sale values(seq_sale.nextval, 9, 6, 3, 24);
+insert into sale values(seq_sale.nextval, 2, 7, 3, 2);
+insert into sale values(seq_sale.nextval, 2, 8, 3, 4);
+insert into sale values(seq_sale.nextval, 2, 9, 3, 3);
+insert into sale values(seq_sale.nextval, 2, 1, 4, 9);
+insert into sale values(seq_sale.nextval, 1, 2, 4, 15);
+insert into sale values(seq_sale.nextval, 2, 3, 4, 19);
+insert into sale values(seq_sale.nextval, 14, 4, 4, 2);
+insert into sale values(seq_sale.nextval, 48, 5, 4, 12);
+insert into sale values(seq_sale.nextval, 6, 6, 4, 15);
+insert into sale values(seq_sale.nextval, 1, 7, 4, 20);
+insert into sale values(seq_sale.nextval, 1, 8, 4, 3);
+insert into sale values(seq_sale.nextval, 2, 9, 4, 24);
+insert into sale values(seq_sale.nextval, 2, 1, 5, 13);
+insert into sale values(seq_sale.nextval, 1, 2, 5, 13);
+insert into sale values(seq_sale.nextval, 2, 3, 5, 15);
+insert into sale values(seq_sale.nextval, 19, 4, 5, 14);
+insert into sale values(seq_sale.nextval, 43, 5, 5, 6);
+insert into sale values(seq_sale.nextval, 1, 6, 5, 7);
+insert into sale values(seq_sale.nextval, 2, 7, 5, 5);
+insert into sale values(seq_sale.nextval, 1, 9, 5, 17);
+insert into sale values(seq_sale.nextval, 3, 1, 6, 19);
+insert into sale values(seq_sale.nextval, 1, 2, 6, 24);
+insert into sale values(seq_sale.nextval, 1, 3, 6, 12);
+insert into sale values(seq_sale.nextval, 12, 4, 6, 24);
+insert into sale values(seq_sale.nextval, 26, 5, 6, 4);
+insert into sale values(seq_sale.nextval, 7, 6, 6, 7);
+insert into sale values(seq_sale.nextval, 1, 8, 6, 22);
+insert into sale values(seq_sale.nextval, 1, 9, 6, 10);
+insert into sale values(seq_sale.nextval, 2, 2, 7, 16);
+insert into sale values(seq_sale.nextval, 2, 4, 7, 15);
+insert into sale values(seq_sale.nextval, 25, 5, 7, 17);
+insert into sale values(seq_sale.nextval, 5, 6, 7, 4);
+insert into sale values(seq_sale.nextval, 1, 7, 7, 2);
+insert into sale values(seq_sale.nextval, 2, 8, 7, 18);
+insert into sale values(seq_sale.nextval, 1, 9, 7, 11);
+insert into sale values(seq_sale.nextval, 1, 1, 8, 8);
+insert into sale values(seq_sale.nextval, 2, 2, 8, 13);
+insert into sale values(seq_sale.nextval, 1, 3, 8, 7);
+insert into sale values(seq_sale.nextval, 13, 4, 8, 13);
+insert into sale values(seq_sale.nextval, 48, 5, 8, 22);
+insert into sale values(seq_sale.nextval, 2, 8, 8, 3);
+insert into sale values(seq_sale.nextval, 2, 9, 8, 22);
+insert into sale values(seq_sale.nextval, 3, 1, 9, 13);
+insert into sale values(seq_sale.nextval, 1, 3, 9, 1);
+insert into sale values(seq_sale.nextval, 17, 4, 9, 2);
+insert into sale values(seq_sale.nextval, 47, 5, 9, 16);
+insert into sale values(seq_sale.nextval, 9, 6, 9, 7);
+insert into sale values(seq_sale.nextval, 1, 7, 9, 9);
+insert into sale values(seq_sale.nextval, 2, 9, 9, 9);
+insert into sale values(seq_sale.nextval, 2, 3, 10, 6);
+insert into sale values(seq_sale.nextval, 47, 5, 10, 14);
+insert into sale values(seq_sale.nextval, 9, 6, 10, 7);
+insert into sale values(seq_sale.nextval, 1, 7, 10, 7);
+insert into sale values(seq_sale.nextval, 2, 8, 10, 8);
+insert into sale values(seq_sale.nextval, 2, 9, 10, 3);
+insert into sale values(seq_sale.nextval, 1, 1, 11, 17);
+insert into sale values(seq_sale.nextval, 1, 2, 11, 16);
+insert into sale values(seq_sale.nextval, 7, 4, 11, 9);
+insert into sale values(seq_sale.nextval, 49, 5, 11, 18);
+insert into sale values(seq_sale.nextval, 7, 6, 11, 18);
+insert into sale values(seq_sale.nextval, 2, 7, 11, 19);
+insert into sale values(seq_sale.nextval, 2, 9, 11, 14);
+insert into sale values(seq_sale.nextval, 1, 1, 12, 9);
+insert into sale values(seq_sale.nextval, 2, 2, 12, 19);
+insert into sale values(seq_sale.nextval, 1, 3, 12, 16);
+insert into sale values(seq_sale.nextval, 12, 4, 12, 24);
+insert into sale values(seq_sale.nextval, 30, 5, 12, 13);
+insert into sale values(seq_sale.nextval, 6, 6, 12, 18);
+insert into sale values(seq_sale.nextval, 2, 8, 12, 8);
+insert into sale values(seq_sale.nextval, 2, 9, 12, 15);
+insert into sale values(seq_sale.nextval, 4, 1, 13, 19);
+insert into sale values(seq_sale.nextval, 2, 2, 13, 21);
+insert into sale values(seq_sale.nextval, 2, 3, 13, 12);
+insert into sale values(seq_sale.nextval, 17, 4, 13, 8);
+insert into sale values(seq_sale.nextval, 38, 5, 13, 15);
+insert into sale values(seq_sale.nextval, 3, 6, 13, 8);
+insert into sale values(seq_sale.nextval, 1, 7, 13, 6);
+insert into sale values(seq_sale.nextval, 1, 8, 13, 25);
+insert into sale values(seq_sale.nextval, 1, 9, 13, 21);
+insert into sale values(seq_sale.nextval, 2, 1, 14, 20);
+insert into sale values(seq_sale.nextval, 17, 5, 14, 17);
+insert into sale values(seq_sale.nextval, 1, 6, 14, 8);
+insert into sale values(seq_sale.nextval, 2, 8, 14, 1);
