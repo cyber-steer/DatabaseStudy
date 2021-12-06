@@ -779,3 +779,21 @@ select c.cvoluem as 용량, s.squantity as 수량, c.cprice* s.squantity as 가격
 from cylinder c join sale s
 on c.cno = s.cno
 where pno = 10;
+
+select sname
+from station;
+
+select s.sname as "충전소 명", sum(p.psum) as "총 매출액"
+from sale join payment p
+on sale.pno = p.pno
+join station s
+on sale.cno = s.sno
+where s.sname like '%해연%'
+group by s.sname;
+
+select s.sname as "충전소 명", c.cvoluem as "용기 크기", c.chave as "보유량"
+from station s join cylinder c
+on s.sno = c.sno
+where s.sname like '%광신%';
+
+
